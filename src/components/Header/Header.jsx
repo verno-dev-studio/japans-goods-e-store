@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { NavLink, useSearchParams } from 'react-router-dom';
 import { useCategory } from '../../context/CategoryContext';
 import { useCart } from '../../context/CartContext';
-import logo from '/logo.svg';
+import logo from `${import.meta.env.BASE_URL}logo.svg`;
 
 const Header = () => {
 	const [searchParams, setSearchParams] = useSearchParams();
