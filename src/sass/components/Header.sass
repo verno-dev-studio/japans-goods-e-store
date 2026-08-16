@@ -1,0 +1,236 @@
+@import '../variables'
+
+// ===============
+// HEADER STYLES
+// ===============
+
+.header
+    background: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%)
+    padding: $spacing-lg 2rem
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2)
+    position: sticky
+    top: 0
+    z-index: 1000
+
+    // display: flex
+    // justify-content: space-between
+    // align-items: center
+    display: grid
+    place-content: center
+    grid-template-columns: max-content 1fr min-content
+    align-items: center
+    grid-gap: $spacing-xl
+
+    border-bottom: 3px solid $accent-color
+
+    &__container__logo
+        display: flex
+        align-items: center
+        gap: $spacing-md
+        flex-shrink: 0
+        place-content: center
+
+.logo__icon
+    width: 5rem
+    height: 5rem
+    object-fit: cover
+    border-radius: 4px
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3)
+    border: 2px solid $accent-color
+
+.logo__text
+    font-family: $font-family-serif
+    font-size: $font-size-2xl
+    font-weight: $font-weight-bolder
+    color: $accent-color
+    margin: 0
+    letter-spacing: 1px
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3)
+
+.navbar
+    flex-grow: 1
+    display: flex
+    justify-content: flex-end
+
+.nav-menu
+    @include flex-center
+    gap: $spacing-lg
+    list-style: none
+    margin: 0
+    padding: 0
+
+.nav-item
+    // * Pass for now
+
+.nav-link
+    color: $text-color-light
+    text-decoration: none
+    font-family: $font-family-sans
+    font-size: $font-size-lg
+    font-weight: $font-weight-bold
+    padding: $spacing-sm $spacing-md
+    border-radius: 2px
+    position: relative
+    transition: all $transition-short
+    border-bottom: 2px solid transparent
+    display: inline-flex
+    align-items: center
+    gap: $spacing-sm
+    white-space: nowrap
+
+    &:hover
+        color: $accent-color
+        border-bottom-color: $accent-color
+        transform: translateY(-2px)
+
+    &.active
+        color: $accent-color
+        border-bottom-color: $accent-color
+        font-weight: $font-weight-bolder
+
+.nav-link__text
+    line-height: 1
+
+.nav-link__badge
+    display: inline-flex
+    align-items: center
+    justify-content: center
+    min-width: 1.35rem
+    height: 1.35rem
+    padding: 0 0.35rem
+    border-radius: 50px
+    background: $accent-color
+    color: $primary-color
+    font-size: 0.7rem
+    font-weight: $font-weight-bolder
+    line-height: 1
+    flex-shrink: 0
+
+// Search form
+.search-form
+    display: flex
+    align-items: center
+    background: rgba(255, 255, 255, 0.15)
+    border-radius: 2rem
+    padding: 0.2rem 0.2rem 0.2rem 1.2rem // minimal vertical padding
+    border: 0.1rem solid rgba(255, 255, 255, 0.3)
+    transition: all 0.2s ease
+    height: 3rem
+    width: 100% // full width
+    max-width: 100% // no upper limit
+    flex: 1 // takes all available space
+
+    &:focus-within
+        background: rgba(255, 255, 255, 0.25)
+        border-color: $accent-color
+        box-shadow: 0 0 0.4rem rgba($accent-color, 0.4)
+
+.search-input
+    width: 6fr
+    background: transparent
+    border: none
+    padding: 0.4rem 0 // very thin vertical padding
+    font-size: 1.2rem // smaller font
+    color: $text-color-light
+    outline: none
+    width: 100%
+    transition: none
+
+    &::placeholder
+        color: rgba(255, 255, 255, 0.7)
+        font-weight: 400
+        font-size: 1.2rem
+
+.search-button
+    background: $accent-color
+    border: none
+    border-radius: 2rem
+    padding: 0.4rem 0.8rem // small button
+    cursor: pointer
+    font-size: 1.2rem // smaller icon/text
+    transition: all 0.2s ease
+    color: $primary-color
+    display: flex
+    align-items: center
+    justify-content: center
+    margin-left: 0.6rem
+
+    &:hover
+        background: lighten($accent-color, 10%)
+        transform: scale(1.02)
+
+// Responsive
+// @media (max-width: 1148px)
+//     .header
+//         grid-template-columns: 1fr
+//         grid-template-rows: repeat(3, 1fr)
+//         align-items: center
+
+@media (max-width: 1130px)
+    .header
+        // flex-wrap: wrap
+        // padding: $spacing-md 1rem
+        // gap: $spacing-md
+        display: grid
+        height: 13rem
+        grid-template-rows: repeat(3, 1fr)
+        grid-template-columns: 1fr
+        align-items: center
+        padding: calc($spacing-lg + 5.5rem) 1rem
+        grid-gap: $spacing-md
+
+    .navbar
+        width: 100%
+        order: 3
+
+    .nav-menu
+        gap: $spacing-md
+        width: 100%
+        justify-content: center
+
+    .nav-link
+        font-size: 0.95rem
+        padding: 0.4rem 0.8rem
+        gap: 0.35rem
+
+    .nav-link__badge
+        min-width: 1.2rem
+        height: 1.2rem
+        font-size: 0.65rem
+
+@media (max-width: 1024px) and (min-width: 769px)
+    .header
+        padding: $spacing-lg 1.5rem
+        grid-gap: $spacing-lg
+
+    .nav-menu
+        gap: $spacing-md
+
+    .nav-link
+        font-size: 1rem
+        padding: $spacing-sm $spacing-md
+
+@media (max-width: 480px)
+    .header
+        padding: calc($spacing-md + 5.5rem) 1rem
+        height: 11.5rem
+
+    .logo__text
+        font-size: 1.5rem
+
+    .logo__icon
+        width: 4rem
+        height: 4rem
+
+    .navbar
+        width: 100%
+        order: 3
+
+    .nav-menu
+        gap: 0.5rem
+        flex-wrap: wrap
+        justify-content: center
+
+    .nav-link
+        font-size: 0.85rem
+        padding: 0.4rem 0.6rem

@@ -1,0 +1,69 @@
+// ==================
+// VARIABLES & MIXINS
+// ==================
+
+// Colors 
+$primary-color: #1a3a3a
+$secondary-color: #2d5a5a
+$accent-color: #d4af37
+$text-color: #2c3e50
+$text-color-light: #f5f3f0
+$hover-bg: rgba(212, 175, 55, 0.15)
+$bg-color: #fefdfb
+
+// Spacing
+$spacing-xs: 0.25rem
+$spacing-sm: 0.5rem
+$spacing-md: 1rem
+$spacing-lg: 1.5rem
+$spacing-xl: 2rem
+
+// Typography
+$font-size-base: 1rem
+$font-size-lg: 1.1rem
+$font-size-xl: 1.5rem
+$font-size-2xl: 2rem
+$font-weight-normal: 400
+$font-weight-bold: 500
+$font-weight-bolder: 700
+$font-family-serif: 'Playfair Display', 'Georgia', serif
+$font-family-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif
+
+// Border Radius
+$border-radius: 8px
+$border-radius-sm: 4px
+$border-radius-lg: 12px
+
+// Transitions
+$transition-short: 0.2s ease-in-out
+$transition-medium: 0.3s ease-in-out
+$transition-long: 0.5s ease-in-out
+
+// Shadows
+$shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1)
+$shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1)
+$shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15)
+
+// Mixins
+@mixin flex-center
+    display: flex
+    justify-content: center
+    align-items: center
+
+@mixin flex-between
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+@mixin button-reset
+    border: none
+    background: none
+    cursor: pointer
+    padding: 0
+
+@mixin hover-transition
+    transition: all $transition-short
+
+    &:hover
+        transform: translateY(-2px)
+        box-shadow: $shadow-md

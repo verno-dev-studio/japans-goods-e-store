@@ -1,0 +1,208 @@
+@import '../variables'
+
+// ===============
+// FOOTER STYLES
+// ===============
+
+.footer
+    background: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%)
+    color: $text-color-light
+    padding: $spacing-xl 0 0 0
+    border-top: 3px solid $accent-color
+    width: 100%
+
+.footer__container
+    max-width: 1200px
+    margin: 0 auto
+    padding: $spacing-xl 2rem
+    display: grid
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))
+    gap: $spacing-xl
+
+// Brand Section
+.footer__brand
+    grid-column: span 1
+
+.footer__title
+    font-family: $font-family-serif
+    font-size: $font-size-xl
+    font-weight: $font-weight-bolder
+    color: $accent-color
+    margin: 0 0 $spacing-md 0
+    letter-spacing: 1px
+
+.footer__description
+    font-size: $font-size-base
+    line-height: 1.6
+    color: rgba($text-color-light, 0.9)
+    margin: 0 0 $spacing-lg 0
+
+// Social Links
+.footer__social
+    display: flex
+    gap: $spacing-md
+
+.social-link
+    display: inline-flex
+    align-items: center
+    justify-content: center
+    width: 40px
+    height: 40px
+    background: rgba($accent-color, 0.1)
+    color: $accent-color
+    border-radius: 50%
+    border: 2px solid $accent-color
+    text-decoration: none
+    font-weight: $font-weight-bold
+    transition: all $transition-short
+
+    &:hover
+        background: $accent-color
+        color: $primary-color
+        transform: translateY(-3px)
+
+// Section Headings
+.footer__heading
+    font-family: $font-family-serif
+    font-size: $font-size-lg
+    font-weight: $font-weight-bold
+    color: $accent-color
+    margin: 0 0 $spacing-md 0
+    letter-spacing: 0.5px
+
+// Footer Section
+.footer__section
+    h4
+        margin-bottom: $spacing-md
+
+// Links
+.footer__links
+    list-style: none
+    margin: 0
+    padding: 0
+
+.footer__links li
+    margin-bottom: $spacing-md
+
+.footer__links a
+    color: rgba($text-color-light, 0.85)
+    text-decoration: none
+    transition: all $transition-short
+    position: relative
+    display: inline-block
+    font-size: $font-size-base
+
+    &::after
+        content: ''
+        position: absolute
+        bottom: -2px
+        left: 0
+        width: 0
+        height: 2px
+        background: $accent-color
+        transition: width $transition-short
+
+    &:hover
+        color: $accent-color
+
+        &::after
+            width: 100%
+
+// Contact Section
+.footer__contact
+    p
+        margin: 0
+
+.contact-item
+    margin-bottom: $spacing-md
+    font-size: $font-size-base
+
+.label
+    color: $accent-color
+    font-weight: $font-weight-bold
+    display: block
+    margin-bottom: $spacing-xs
+
+.contact-item a
+    color: rgba($text-color-light, 0.85)
+    text-decoration: none
+    transition: color $transition-short
+
+    &:hover
+        color: $accent-color
+
+.contact-item p
+    color: rgba($text-color-light, 0.9)
+    margin: 0
+
+// Bottom Bar
+.footer__bottom
+    background: rgba(0, 0, 0, 0.2)
+    padding: $spacing-lg 2rem
+    display: flex
+    justify-content: space-between
+    align-items: center
+    flex-wrap: wrap
+    gap: $spacing-md
+    border-top: 1px solid rgba($accent-color, 0.2)
+
+.copyright
+    margin: 0
+    font-size: $font-size-base
+    color: rgba($text-color-light, 0.8)
+
+.footer__legal
+    display: flex
+    gap: $spacing-lg
+
+.footer__legal a
+    color: rgba($text-color-light, 0.8)
+    text-decoration: none
+    font-size: $font-size-base
+    transition: color $transition-short
+
+    &:hover
+        color: $accent-color
+
+// Responsive Design
+@media (max-width: 768px)
+    .footer__container
+        grid-template-columns: repeat(2, 1fr)
+        gap: $spacing-lg
+        padding: $spacing-lg 1rem
+
+    .footer__bottom
+        padding: $spacing-lg 1rem
+        justify-content: center
+        text-align: center
+
+    .footer__legal
+        flex-wrap: wrap
+        justify-content: center
+
+@media (max-width: 480px)
+    .footer__container
+        grid-template-columns: 1fr
+        padding: $spacing-md 1rem
+        gap: $spacing-md
+
+    .footer__title
+        font-size: $font-size-lg
+
+    .footer__heading
+        font-size: $font-size-base
+
+    .footer__social
+        justify-content: flex-start
+
+    .footer__bottom
+        padding: $spacing-md 1rem
+        flex-direction: column
+        text-align: center
+
+    .copyright
+        order: 2
+
+    .footer__legal
+        order: 1
+        width: 100%

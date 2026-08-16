@@ -1,0 +1,284 @@
+@import '../_variables'
+
+// ===============
+// CHECKOUT PAGE
+// ===============
+
+.checkout-container
+    max-width: 1200px
+    margin: 0 auto
+    padding: $spacing-xl 2rem
+    min-height: calc(100vh - 300px)
+
+.checkout-heading
+    font-family: $font-family-serif
+    font-size: $font-size-2xl
+    font-weight: $font-weight-bolder
+    color: $text-color
+    margin: 0 0 $spacing-xl 0
+    padding-bottom: $spacing-lg
+    border-bottom: 3px solid $accent-color
+    letter-spacing: 1px
+    text-align: center
+    text-transform: capitalize
+
+.checkout-layout
+    display: grid
+    grid-template-columns: 1fr 320px
+    gap: $spacing-xl
+    align-items: start
+
+.checkout-form
+    padding: $spacing-lg
+    background: white
+    border-radius: $border-radius-lg
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08)
+    border: 2px solid rgba($accent-color, 0.2)
+    display: flex
+    flex-direction: column
+    gap: $spacing-md
+
+.checkout-form__title
+    font-family: $font-family-serif
+    font-size: 1.25rem
+    font-weight: $font-weight-bolder
+    color: $text-color
+    margin: 0
+
+.checkout-form__note
+    font-family: $font-family-sans
+    font-size: 0.9rem
+    color: $secondary-color
+    margin: 0 0 $spacing-sm 0
+    padding: $spacing-sm $spacing-md
+    background: rgba($accent-color, 0.1)
+    border-radius: $border-radius
+    border-left: 3px solid $accent-color
+
+.checkout-form__label
+    display: flex
+    flex-direction: column
+    gap: $spacing-xs
+    font-family: $font-family-sans
+    font-size: 0.9rem
+    font-weight: $font-weight-bold
+    color: $text-color
+
+.checkout-form__input
+    padding: $spacing-sm $spacing-md
+    border: 2px solid #e0e0e0
+    border-radius: $border-radius
+    font-family: $font-family-sans
+    font-size: $font-size-base
+    color: $text-color
+    transition: border-color 0.3s ease
+
+    &:focus
+        outline: none
+        border-color: $accent-color
+        box-shadow: 0 0 0 3px rgba($accent-color, 0.15)
+
+    &::placeholder
+        color: #aaa
+
+.checkout-form__row
+    display: grid
+    grid-template-columns: 1fr 1fr
+    gap: $spacing-md
+
+.checkout-form__submit
+    margin-top: $spacing-md
+    padding: $spacing-md $spacing-lg
+    background: linear-gradient(135deg, $accent-color 0%, #e8c547 100%)
+    color: $primary-color
+    border: none
+    border-radius: 6px
+    font-size: 1rem
+    font-weight: $font-weight-bolder
+    cursor: pointer
+    text-transform: uppercase
+    letter-spacing: 0.5px
+    transition: all 0.3s ease
+
+    &:hover:not(:disabled)
+        transform: translateY(-2px)
+        box-shadow: 0 6px 12px rgba(212, 175, 55, 0.3)
+
+    &:disabled
+        opacity: 0.7
+        cursor: not-allowed
+
+.checkout-summary
+    position: sticky
+    top: calc(13rem + $spacing-md)
+
+.checkout-summary__card
+    padding: $spacing-lg
+    background: white
+    border-radius: $border-radius-lg
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08)
+    border: 2px solid rgba($accent-color, 0.25)
+
+.checkout-summary__title
+    font-family: $font-family-serif
+    font-size: 1.25rem
+    font-weight: $font-weight-bolder
+    color: $text-color
+    margin: 0 0 $spacing-lg 0
+    padding-bottom: $spacing-md
+    border-bottom: 1px solid #eee
+
+.checkout-summary__list
+    list-style: none
+    padding: 0
+    margin: 0 0 $spacing-lg 0
+    display: flex
+    flex-direction: column
+    gap: $spacing-sm
+
+.checkout-summary__item
+    @include flex-between
+    gap: $spacing-md
+    font-family: $font-family-sans
+    font-size: 0.95rem
+    color: $secondary-color
+
+.checkout-summary__item-name
+    flex: 1
+    min-width: 0
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
+
+.checkout-summary__item-price
+    font-weight: $font-weight-bold
+    color: $text-color
+    flex-shrink: 0
+
+.checkout-summary__row
+    @include flex-between
+    font-family: $font-family-sans
+    font-size: $font-size-lg
+    color: $secondary-color
+    margin-bottom: $spacing-md
+
+    &--total
+        margin-top: $spacing-md
+        padding-top: $spacing-md
+        border-top: 2px solid rgba($accent-color, 0.3)
+        font-size: $font-size-xl
+        font-weight: $font-weight-bold
+        color: $text-color
+
+.checkout-summary__total
+    font-family: $font-family-serif
+    font-weight: $font-weight-bolder
+    color: $accent-color
+
+.checkout-summary__back
+    display: block
+    margin-top: $spacing-lg
+    padding: $spacing-sm $spacing-lg
+    color: $secondary-color
+    border: 2px solid rgba($secondary-color, 0.3)
+    border-radius: 6px
+    font-size: 0.9rem
+    font-weight: $font-weight-bold
+    text-decoration: none
+    text-align: center
+    text-transform: uppercase
+    letter-spacing: 0.5px
+    transition: all 0.3s ease
+
+    &:hover
+        border-color: $accent-color
+        color: $accent-color
+
+.checkout-success
+    max-width: 500px
+    margin: $spacing-xl * 2 auto
+    padding: $spacing-xl * 2
+    text-align: center
+    background: white
+    border-radius: $border-radius-lg
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08)
+    border: 2px solid rgba($accent-color, 0.25)
+
+.checkout-success__icon
+    width: 4rem
+    height: 4rem
+    margin: 0 auto $spacing-lg
+    display: flex
+    align-items: center
+    justify-content: center
+    border-radius: 50%
+    background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%)
+    color: white
+    font-size: 2rem
+    font-weight: $font-weight-bolder
+
+.checkout-success__text
+    font-family: $font-family-sans
+    font-size: $font-size-lg
+    color: $secondary-color
+    margin: 0 0 $spacing-xl 0
+    line-height: 1.5
+
+.checkout-success__link
+    display: inline-block
+    padding: $spacing-sm $spacing-xl
+    background: linear-gradient(135deg, $accent-color 0%, #e8c547 100%)
+    color: $primary-color
+    border-radius: 6px
+    font-size: 0.9rem
+    font-weight: $font-weight-bold
+    text-decoration: none
+    text-transform: uppercase
+    letter-spacing: 0.5px
+    transition: all 0.3s ease
+
+    &:hover
+        transform: translateY(-2px)
+        box-shadow: 0 6px 12px rgba(212, 175, 55, 0.3)
+
+// ===============
+// TABLET (769px – 1024px)
+// ===============
+
+@media (max-width: 1024px) and (min-width: 769px)
+    .checkout-container
+        padding: $spacing-xl 1.5rem
+
+    .checkout-layout
+        grid-template-columns: 1fr 280px
+        gap: $spacing-lg
+
+    .checkout-summary
+        top: calc(13rem + $spacing-sm)
+
+// ===============
+// MOBILE (≤768px)
+// ===============
+
+@media (max-width: 768px)
+    .checkout-layout
+        grid-template-columns: 1fr
+        gap: $spacing-lg
+
+    .checkout-summary
+        position: static
+        order: -1
+
+    .checkout-form__row
+        grid-template-columns: 1fr
+
+    .checkout-heading
+        font-size: $font-size-xl
+
+@media (max-width: 480px)
+    .checkout-container
+        padding: $spacing-lg 1rem
+
+    .checkout-success
+        padding: $spacing-xl
+        margin: $spacing-xl auto

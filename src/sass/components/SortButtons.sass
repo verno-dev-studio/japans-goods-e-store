@@ -1,0 +1,88 @@
+// ==================
+// SORT CONTROLS STYLES
+// ==================
+
+.sort-controls
+    display: grid
+    grid-template-columns: repeat(4, 1fr) // 4 columns wide screen
+    gap: $spacing-md
+    margin-top: $spacing-md
+    margin-bottom: $spacing-sm
+    width: 100% // Fluid width handles the responsiveness
+    max-width: 40rem // Prevents stretching too wide
+
+.sort-input, .sort-select, .sort-order-button
+    width: 100% // Let grid control the item widths
+    box-sizing: border-box
+
+.sort-input, .sort-select
+    background-color: $bg-color
+    border: 0.0625rem solid rgba($primary-color, 0.2)
+    border-radius: $border-radius
+    padding: $spacing-sm $spacing-lg $spacing-sm $spacing-md
+    font-family: $font-family-sans
+    font-size: $font-size-base
+    font-weight: $font-weight-normal
+    color: $primary-color
+    cursor: pointer
+    transition: all $transition-short
+    appearance: none
+
+    &:hover
+        border-color: $accent-color
+        box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1)
+
+    &:focus
+        outline: none
+        border-color: $accent-color
+        box-shadow: 0 0 0 0.125rem rgba($accent-color, 0.2)
+
+.sort-input-empty
+    width: 1fr
+    display: inline-block
+    margin-bottom: 2rem 
+
+.sort-select
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%231a3a3a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E")
+    background-repeat: no-repeat
+    background-position: right $spacing-md center
+    background-size: 1rem
+
+.sort-order-button
+    white-space: nowrap
+    background-color: $bg-color
+    border: 0.0625rem solid rgba($primary-color, 0.2)
+    border-radius: $border-radius
+    padding: $spacing-sm $spacing-md
+    font-family: $font-family-sans
+    font-size: $font-size-base
+    font-weight: $font-weight-bold
+    color: $primary-color
+    cursor: pointer
+    transition: all $transition-short
+    display: flex
+    align-items: center
+    justify-content: center
+    gap: $spacing-xs
+
+    &:hover
+        border-color: $accent-color
+        background-color: $hover-bg
+        transform: translateY(-0.0625rem)
+        box-shadow: $shadow-sm
+
+    &:active
+        transform: translateY(0)
+
+// ==================
+// RESPONSIVE BREAKPOINTS
+// ==================
+
+@media (max-width: 620px)
+    .sort-controls
+        grid-template-columns: repeat(2, 1fr) // 2 columns, 2 rows
+        gap: $spacing-sm
+
+@media (max-width: 480px)
+    .sort-controls
+        grid-template-columns: 1fr // 1 column, 4 rows
