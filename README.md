@@ -47,6 +47,3 @@ npm run preview  # preview the production build
 ```
 
 > Requires Node.js 18+. Deployed to GitHub Pages automatically on push via GitHub Actions.
-
----
-<sub>Portfolio demo. Live site built and deployed from source via GitHub Actions.</sub>
